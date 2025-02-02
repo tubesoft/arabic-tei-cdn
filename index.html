@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/vue3-sfc-loader/dist/vue2-sfc-loader.js"></script>
+  <script src="saxon-js/SaxonJS2.js"></script>
+  <style>
+    div.double-space {
+      line-height: 2.5 !important;
+    }
+    p.first-line-indent {
+      text-indent: 80px;
+    }
+    .sticky-menu {
+      position: fixed !important;
+      top: 64px !important;
+      z-index: 3;
+    }
+    span.marked-phrase {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app :dark="setTheme">
+      <v-app-bar app color="primary" dark>
+        <v-btn to="/" text>
+          <span class="mr-2">HOME</span>
+        </v-btn>
+        <v-btn to="/about" text>
+          <span class="mr-2">About</span>
+        </v-btn>
+        <v-btn to="/edition" text>
+          <span class="mr-2">Edition</span>
+        </v-btn>
+        <v-btn to="/translation" text>
+          <span class="mr-2">Translation</span>
+        </v-btn>
+        <v-btn to="/parallel" text>
+          <span class="mr-2">Parallel View</span>
+        </v-btn>
+        <v-btn to="/glossary" text>
+          <span class="mr-2">Glossary</span>
+        </v-btn>
+        <v-spacer></v-spacer>
+        <v-switch
+          hide-details
+          color="secondary"
+          v-model='goDark'
+          :label="`Dark Mode: ${isON}`"
+        ></v-switch>
+        <!-- <v-toolbar-title class="text-h5 ml-5 font-weight-bold">Takatomo Inoue Project</v-toolbar-title> -->
+        <v-toolbar-title class="text-h5 ml-5 font-weight-bold">Prototype Webapp</v-toolbar-title>
+        <!-- <h2 class="ml-5"></h2> -->
+      </v-app-bar>
+      <v-main>
+        <div id="router-view">
+          <router-view
+            v-if="render"
+            ref="view"
+            :editionlist="editionList"
+          ></router-view>
+        </div>
+      </v-main>
+    </v-app>
+  <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>
