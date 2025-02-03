@@ -6,7 +6,7 @@
 
       <v-col class="mb-4">
         <!-- <p class="text-h2">Takatomo Inoue Project</p> -->
-        <p class="text-h2">Prototype Webapp</p>
+        <p class="text-h2">Arabic Alchemical Literature Digital Edition by Takatomo Inoue</p>
         <p class="heading font-weight-regular">
           Editing and Translating Manuscripts on Alchemy in Medieval Islam
           <br/>

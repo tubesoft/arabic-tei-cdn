@@ -61,9 +61,9 @@ export default {
   methods: {
     getConvertedText: async function() {
       try {
-        const responseXML = await fetch('../assets/tei/' + this.xml + '.xml')
+        const responseXML = await fetch('/assets/tei/' + this.xml + '.xml')
         const xml = new DOMParser().parseFromString(await responseXML.text(), 'text/xml')
-        const responseXSL = await fetch('../assets/xslt/' + this.xsl + '.xsl')
+        const responseXSL = await fetch('/assets/xslt/' + this.xsl + '.xsl')
         const xsl = new DOMParser().parseFromString(await responseXSL.text(), 'text/xml')
 
         var xsltProcessor = new XSLTProcessor()
