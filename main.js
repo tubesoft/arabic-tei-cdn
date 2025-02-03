@@ -76,9 +76,9 @@ new Vue({
     var num = 1
     try {
       while (true) {
-        const responseXML = await fetch('/assets/tei/AMI' + ( '00000' + num ).slice( -5 ) + '.xml')
+        const responseXML = await fetch('assets/tei/AMI' + ( '00000' + num ).slice( -5 ) + '.xml')
         const xml = new DOMParser().parseFromString(await responseXML.text(), 'text/xml')
-        const responseXSL = await fetch('/assets/xslt/make-title-list.xsl')
+        const responseXSL = await fetch('assets/xslt/make-title-list.xsl')
         const xsl = new DOMParser().parseFromString(await responseXSL.text(), 'text/xml')
         var xsltProcessor = new XSLTProcessor()
         xsltProcessor.importStylesheet(xsl)
