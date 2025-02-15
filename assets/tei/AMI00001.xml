@@ -3,10 +3,20 @@
 <teiHeader>
     <fileDesc>
         <titleStmt>
-            <title>AMI00001</title>
+            <title>
+                <title>Dhikr al-khamāʾir</title>
+                <idno>AMI00001</idno>
+            </title>
+            <author>
+                Abū Bakr Muḥammad ibn Zakariyyāʾ
+                <surname>al-Rāzī</surname>
+            </author>
             <respStmt><name xml:id="tainoue">Takatomo Inoue</name><resp>Editor</resp></respStmt>
         </titleStmt>
-        <publicationStmt><publisher>Takatomo Inoue</publisher><pubPlace>Bloomington,IN</pubPlace><date>2022</date>
+        <publicationStmt>
+            <publisher>Takatomo Inoue</publisher>
+            <pubPlace>Bloomington,IN</pubPlace>
+            <date>2025</date>
             <availability status="restricted"><p>The texts and images available in it are provided for non-commercial, 
                 personal, or research use only and are protected under the copyright laws of the United States and 
                 the Universal Copyright Convention. All other use, including but not limited to commercial or 
@@ -42,7 +52,7 @@
                                 <surname>al-Rāzī</surname>
                             </author>
                             <title xml:lang="ar">رسالة في خواص الإكسير</title>
-                            <title xml:lang="lat-ar">Risāla fī khwāṣṣ al-iksīr</title>
+                            <title xml:lang="lat-ar">Risāla fī khawāṣṣ al-iksīr</title>
                         </msItem>
                     </msContents>
                     <physDesc>
@@ -146,7 +156,7 @@
 <text>
     <body>
         <!-- Arabic Text -->
-        <!-- TODO <term> substance, instrument, process, princeple, decknamen, Islamic, number, medical, astrology -->
+        <!-- TODO <term> substance, instrument, process, principle, decknamen, Islamic, number, medical, astrology -->
         <div xml:lang="ar">
             
             <p n="1">
@@ -164,7 +174,7 @@
                     <app n="1">
                         <lem>والحيوانية</lem>
                         <rdg wit="#F #HM">والجوانية</rdg>
-                        <note type="biblio" xml:id="note-0001">
+                        <note type="editorial" xml:id="note-0002">
                             The corresponding title in Kitāb al-asrār says الحيوانية.
                         </note>
                     </app>
@@ -172,6 +182,9 @@
                     <orgName type="group">الحكماء</orgName>
                     ليزوج لهم العمل
                     ومتى وهموا بها فيرتفع لهم العمل بأهون سعي وأقرب مدة
+                    <note type="biblio" xml:id="note-0001">
+                        The corresponding title is found in Kitāb al-asrār. See al-Razī, ed., M. T. Dānish Pazhūh, Kitāb al-asrār, p. 114.
+                    </note>
                 </bibl>
                 <term type="Islamic">إن شاء الله تعالى</term>
             </p>
@@ -485,7 +498,12 @@
                     </app>
                 </persName>
                 في
-                <bibl>كتاب الرحمة</bibl>
+                <bibl>
+                    كتاب الرحمة
+                    <note type="biblio" xml:id="note-0003">
+                        An edition: Jābir ibn Ḥayyān, Kitāb al-raḥma al-kabīr, ed. Marcellin Berthelot in idem, La chimie au moyan âge (Paris: Imprimerie Nationale, 1893), pp. 132-160.
+                    </note>
+                </bibl>
                 أما القاء
                 <term type="color">الأبيض</term>
                 من
@@ -622,7 +640,7 @@
                 أخرجه جوهرًا لا
                 <app n="19">
                    <lem wit="#F">يدرأ</lem>
-                    <rdg wit="#HM">يدرئ</rdg>
+                   <rdg wit="#HM">يدرئ</rdg>
                 </app>
                 ما هو ولا يوجد أحدًا يعرفه لأنه أبيض من الدرّ ومن
                 <app n="20">
@@ -731,7 +749,7 @@
                 <term type="number">الخمس</term>
                 <app n="23">
                    <lem wit="#HM">البلغمية</lem>
-                    <rdg wit="#F">البلعمية</rdg>
+                   <rdg wit="#F">البلعمية</rdg>
                 </app>
                 الملازمة متى سقى صاحبها 
                 وزن
@@ -906,7 +924,7 @@
                 وبدت الزرقة في مواضع في بدنه فإذا هو ملسوع أفعى
                 <app n="34">
                    <lem wit="#F">أفعى</lem>
-                    <rdg wit="#HM">أفعا</rdg>
+                   <rdg wit="#HM">أفعا</rdg>
                 </app>
                 <app n="35">
                    <lem wit="#HM">نهشته</lem>
@@ -1090,8 +1108,8 @@
                 في داخل الذكر والمثانة
                 <app n="46">
                    <lem wit="#F #HM">والكلاء</lem>
-                   <rdg>الكلى</rdg>
-                   <note type="biblio" xml:id="note-0002">It might mean kidney.</note>
+                   <rdg>الكلى؟</rdg>
+                   <note type="editorial" xml:id="note-0004">It might mean kidney.</note>
                 </app>
                 <term type="medical">والاورام للصلب في المتانة</term>
                 <term type="medical">وقطع شهوة الجماع</term>
@@ -1106,7 +1124,10 @@
                 <term type="number">ربع</term>
                 <term type="unit">شعيرات</term>
                 وهو من يومه ينجح قد تكلمنا في
-                <bibl>خواص الإكسير</bibl>
+                <bibl>
+                    خواص الإكسير
+                    <note type="biblio" xml:id="note-0005">The text of this title is not identified. One possibility is Süleymaniye Library, Istanbul, MS, Haci Mahmut 4224, fols. 20b-23b.</note>
+                </bibl>
                 ومنافعه ففيه
                 <app n="47">
                    <lem wit="#HM">أربع</lem>
@@ -1217,7 +1238,7 @@
                 الذي
                 <app n="51">
                    <lem wit="#F">لا</lem>
-                    <rdg wit="#HM">لما</rdg>
+                   <rdg wit="#HM">لما</rdg>
                 </app>
                 دواء له وله منفعة بالغة
                 <term type="medical">وأوجاع الأسنان</term>

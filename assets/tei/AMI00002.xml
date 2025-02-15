@@ -3,7 +3,14 @@
 <teiHeader>
     <fileDesc>
         <titleStmt>
-            <title>AMI00002</title>
+            <title>
+                <title>Kitāb ʿilal al-maʿādin</title>
+                <idno>AMI00002</idno>
+            </title>
+            <author>
+                Abū Bakr Muḥammad ibn Zakariyyāʾ
+                <surname>al-Rāzī</surname>
+            </author>
             <respStmt><name xml:id="tainoue">Takatomo Inoue</name><resp>Editor</resp></respStmt>
         </titleStmt>
         <publicationStmt><publisher>Takatomo Inoue</publisher><pubPlace>Bloomington,IN</pubPlace><date>2022</date>

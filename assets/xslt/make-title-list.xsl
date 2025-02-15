@@ -6,9 +6,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xpath-default-namespace="http://www.tei-c.org/ns/1.0">
 
-	<xsl:variable name="title" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msPart/tei:msContents/tei:msItem/tei:title[@xml:lang='lat-ar']"/>
-	<xsl:variable name="author" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msPart/tei:msContents/tei:msItem/tei:author[@xml:lang='lat-ar']/tei:surname"/>
-	<xsl:variable name="file-name" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+	<xsl:variable name="title" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/tei:title"/>
+	<xsl:variable name="author" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author/tei:surname"/>
+	<xsl:variable name="file-name" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/tei:idno"/>
 
 	<xsl:template match="/tei:TEI">
 		<titleList>

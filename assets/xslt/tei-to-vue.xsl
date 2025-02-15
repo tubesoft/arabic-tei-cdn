@@ -6,8 +6,8 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xpath-default-namespace="http://www.tei-c.org/ns/1.0">
 
-	<xsl:variable name="title" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msPart/tei:msContents/tei:msItem/tei:title[@xml:lang='lat-ar']"/>
-	<xsl:variable name="author" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msPart/tei:msContents/tei:msItem/tei:author[@xml:lang='lat-ar']"/>
+	<xsl:variable name="title" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/tei:title"/>
+	<xsl:variable name="author" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/>
 
 	<!-- Entire Structure -->
 	<xsl:template match="/tei:TEI">
@@ -56,16 +56,16 @@
 
 	<!-- Body -->
 	<xsl:template match="tei:text/tei:body/tei:div[@xml:lang='ar']">
-		<!-- 1st row: not rendering, 2nd: row render as it is, 3rd: render with special processes -->
+		<!-- 1st row: not rendering, 2nd row: render as it is, 3rd row: render with special processes -->
 		<xsl:apply-templates select="tei:fw |
-
-			tei:bibl | tei:orgName | tei:term | tei:persName |
-
+			
+			tei:bibl | tei:orgName | tei:term | tei:persName | 
+			
 			tei:lb | tei:milestone | tei:p | tei:choice | tei:note |
 			tei:unclear | tei:gap | tei:hi | tei:note[@place] |
 			tei:seg[@subtype] | tei:note[@type='editorial'] | tei:note[@type='editorial'][@next] |
-			tei:del
-			"/>
+			tei:del | tei:app 
+		"/>
 	</xsl:template>
 
 	<!--get any kinds of nodes that is xml:id attribute-->
@@ -78,9 +78,11 @@
 	<!-- Not rendering -->
 	<xsl:template match="tei:fw"/>
 	<xsl:template match="tei:note[@type='biblio']"/><!-- To surpress in the main text  -->
+	<xsl:template match="tei:note[@type='editorial']"/>
 	<xsl:template match="tei:note[@type='editorial-combined']"/>
 	<xsl:template match="tei:w[@next]"/>
 	<xsl:template match="tei:w[@prev]"/>
+	<xsl:template match="tei:rdg"/>
 
 	<!-- Rendering with special processes -->
 	<xsl:template match="tei:lb">
@@ -105,7 +107,6 @@
 						<xsl:attribute name="class">pa-4 text-body-2 secondary lighten-3 rounded-pill</xsl:attribute>
 						<xsl:value-of select="@n"/>
 					</xsl:element>
-					<br/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:element>
@@ -236,9 +237,8 @@
 				<xsl:element name="span">
 					<xsl:attribute name="v-bind">attrs</xsl:attribute>
 					<xsl:attribute name="v-on">on</xsl:attribute>
-					<xsl:attribute name="class">pa-1 ms-2 warning lighten-4 secondary--text text--base rounded-lg</xsl:attribute>
-					<xsl:apply-templates/>
-					<xsl:apply-templates select="tei:note[@type='biblio']"/>
+					<xsl:attribute name="class">px-2 pb-2 ms-n1 mr-2 success secondary--text text--base rounded-lg</xsl:attribute>
+					<v-icon>mdi-book-open-variant</v-icon>
 					<xsl:if test="./tei:note[@type='biblio']">
 						<xsl:variable name="note-id" select="./tei:note/@xml:id"/>
 						<sup class="text-subtitle-1">
@@ -252,24 +252,80 @@
 				<xsl:attribute name="shaped"/>
 				<xsl:attribute name="max-width">350</xsl:attribute>
 				<xsl:element name="v-card-subtitle">
-					<xsl:choose>
-			      <xsl:when test="./tei:note[@type='biblio']">
-							<xsl:variable name="note-id" select="./tei:note/@xml:id"/>
+				<xsl:choose>
+					<xsl:when test="./tei:note[@type='biblio']">
+						<xsl:variable name="note-id" select="./tei:note/@xml:id"/>
 							Note:
-							<xsl:value-of select="number(substring-after($note-id, '-'))"/>
-						</xsl:when>
+						<xsl:value-of select="number(substring-after($note-id, '-'))"/>
+					</xsl:when>
 			      <xsl:otherwise></xsl:otherwise>
 			    </xsl:choose>
 				</xsl:element>
 				<xsl:element name="v-card-text">
 					<xsl:choose>
-			      <xsl:when test="./tei:note[@type='biblio']">
+						<xsl:when test="./tei:note[@type='biblio']">
 							<xsl:value-of select="./tei:note[@type='biblio']"/>
 						</xsl:when>
-			      <xsl:otherwise>
+						<xsl:otherwise>
 							NO INFO
 						</xsl:otherwise>
-			    </xsl:choose>
+				    </xsl:choose>
+				</xsl:element>
+			</xsl:element>
+		</xsl:element>
+		<xsl:element name="span">
+			<xsl:attribute name="class">success--text</xsl:attribute>
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+
+	<xsl:template match="tei:app">
+		<xsl:element name="v-menu">
+			<xsl:attribute name="id">v-menu-config</xsl:attribute>
+			<xsl:attribute name="offset-y"/>
+			<xsl:attribute name="open-on-hover"/>
+			<xsl:element name="template">
+				<xsl:attribute name="id">vslot</xsl:attribute>
+				<xsl:element name="span">
+					<xsl:attribute name="v-bind">attrs</xsl:attribute>
+					<xsl:attribute name="v-on">on</xsl:attribute>
+					<xsl:attribute name="class">warning--text</xsl:attribute>
+					<xsl:apply-templates/>
+					<xsl:if test="./tei:note[@type='editorial']">
+						<xsl:variable name="note-id" select="./tei:note/@xml:id"/>
+						<sup class="text-subtitle-1">
+							<xsl:value-of select="number(substring-after($note-id, '-'))"/>
+						</sup>
+					</xsl:if>
+				</xsl:element>
+			</xsl:element>
+			<xsl:element name="v-card">
+				<xsl:attribute name="outlined"/>
+				<xsl:attribute name="shaped"/>
+				<xsl:attribute name="max-width">350</xsl:attribute>
+				<xsl:element name="v-card-text">
+					<xsl:choose>
+						<xsl:when test="./tei:rdg/@wit">
+							<xsl:value-of select="translate(substring(./tei:rdg/@wit, 2),' #',', ')"/>
+							:
+						</xsl:when>
+						<xsl:otherwise>
+						</xsl:otherwise>
+					</xsl:choose>
+					<xsl:value-of select="./tei:rdg"/>
+					<xsl:choose>
+						<xsl:when test="./tei:note[@type='editorial']">
+							<xsl:variable name="note-id" select="./tei:note/@xml:id"/>
+							<br/><br/>
+							Note:
+							<xsl:value-of select="number(substring-after($note-id, '-'))"/>
+							<br/><br/>
+							<xsl:value-of select="./tei:note[@type='editorial']"/>
+						</xsl:when>
+						<xsl:otherwise></xsl:otherwise>
+					</xsl:choose>
+					
+					
 				</xsl:element>
 			</xsl:element>
 		</xsl:element>
