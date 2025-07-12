@@ -11,29 +11,65 @@ const options = {
   addStyle(styleStr) {}
 };
 const routes = [
+  // {
+  //   path: '/',
+  //   component: () => loadModule('./components/Home.vue', options)
+  // },
+  // {
+  //   path: '/about',
+  //   component: () => loadModule('./components/About.vue', options)
+  // },
+  // {
+  //   path: '/edition',
+  //   component: () => loadModule('./components/Edition.vue', options)
+  // },
+  // {
+  //   path: '/translation',
+  //   component: () => loadModule('./components/Translation.vue', options)
+  // },
+  // {
+  //   path: '/parallel',
+  //   component: () => loadModule('./components/Parallel.vue', options)
+  // },
+  // {
+  //   path: '/glossary',
+  //   component: () => loadModule('./components/Glossary.vue', options)
+  // },
   {
     path: '/',
-    component: () => loadModule('./components/Home.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/"
+    }
   },
   {
     path: '/about',
-    component: () => loadModule('./components/About.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/about"
+    }
   },
   {
     path: '/edition',
-    component: () => loadModule('./components/Edition.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/edition"
+    }
   },
   {
     path: '/translation',
-    component: () => loadModule('./components/Translation.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/translation"
+    }
   },
   {
     path: '/parallel',
-    component: () => loadModule('./components/Parallel.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/"
+    }
   },
   {
     path: '/glossary',
-    component: () => loadModule('./components/Glossary.vue', options)
+    beforeEnter() {
+      window.location = "https://tubesoft.github.io/arabic-tei/glossary"
+    }
   },
 ];
 
