@@ -60,6 +60,25 @@
         <!-- <h2 class="ml-5"></h2> -->
       </v-app-bar>
       <v-main>
+        <v-overlay
+        :model-value="true"
+        class="align-center justify-center"
+        >
+            <v-row justify="center">
+                <v-col>
+                    <span class="text-h2">Redirecting to the new webapp...</span>
+                </v-col>
+            </v-row>
+            <v-row justify="center">
+                <v-col cols="12"　class="d-flex justify-center">
+                    <v-progress-circular
+                        color="primary"
+                        size="64"
+                        indeterminate
+                    ></v-progress-circular>
+                </v-col>
+            </v-row>
+        </v-overlay>
         <div id="router-view">
           <router-view
             v-if="render"
